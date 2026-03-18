@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block titulo %}Minimarket "Sofia"{% endblock %}</title>
+  <!-- Begin CDN Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <!-- End CDN Bootstrap 5 -->
+   {% load static %}
+   <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+  
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
+  <!-- Begin Navbar -->
+   <nav class="navbar navbar-dark bg-dark mb-4">
+    <div class="container">
+      <a href="/" class="navbar-brand">Minimarket "Sofia"</a>
+      <div>
+        <a href="/" class="btn btn-outline-light btn-sm me-2"> Cátalogo </a>
+        <a href="/bodega/" class="btn btn-outline-warning btn-sm"> Bodega </a>
+      </div>
+    </div>
+   </nav>
+  <!-- End Navbar -->
+
+  <main class="container flex-grow-1">
+    {% block contenido %}{% endblock %}
+  </main>
+
+ <footer class="bg-dark text-white pt-4 pb-3 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h6 class="text-uppercase fw-bold">Django Store</h6>
+                    <p class="text-white-50 small mb-0">Tu minimarket de confianza. Productos de calidad al mejor precio.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h6 class="text-uppercase fw-bold">Enlaces</h6>
+                    <ul class="list-unstyled small mb-0">
+                        <li><a href="/" class="text-white-50 text-decoration-none">Catálogo</a></li>
+                        <li><a href="/bodega/" class="text-white-50 text-decoration-none">Bodega</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h6 class="text-uppercase fw-bold">Contacto</h6>
+                    <p class="text-white-50 small mb-0">
+                        contacto@djangostore.cl<br>
+                        +56 9 1234 5678
+                    </p>
+                </div>
+            </div>
+            <hr class="border-secondary">
+            <p class="text-center text-white-50 small mb-0">
+                 {% block footer %} &copy; 2026 Minimarket "Sofia". All rights reserved. {% endblock %}
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
