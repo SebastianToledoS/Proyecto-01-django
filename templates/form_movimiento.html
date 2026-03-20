@@ -1,0 +1,37 @@
+<div class="card shadow-sm mb-4">
+  <div class="card-header">
+    <h5>Registrar Movimiento de Bodega</h5>
+  </div>
+  <div class="card-body">
+    <form method="post">
+      {% csrf_token %}
+      <div class="row g-3">
+        <div class="col-md-2">
+          <select name="tipo" class="form-select" required>
+            <option value="" disabled selected>Tipo</option>
+            <option value="Entrada">Entrada</option>
+            <option value="Salida">Salida</option>
+          </select>
+        </div>
+
+        <div class="col-md-5">
+          <select name="producto_id" class="form-select" required>
+            <option value="" disabled selected>Selecciona Producto</option>
+            {% for producto in productos %}
+              <option value="{{ producto.id }}">{{producto.codigo}} - {{ producto.nombre }}</option>
+            {% empty %}
+              <option disabled>No hay productos disponibles</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="col-md-3">
+          <input type="number" name="cantidad" class="form-control" placeholder="Cantidad" min="1" required>
+        </div>
+        <div class="col-md-2 d-grid">
+          <button type="submit" class="btn btn-outline-success">Registrar</button>
+        </div>
+      </div>
+    </form>
+
+  </div>

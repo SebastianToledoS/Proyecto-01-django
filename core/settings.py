@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'minimarket_sofia',
+        'USER': 'postgres',
+        'PASSWORD': 'academy',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -119,6 +123,6 @@ USE_TZ = True
 STATIC_URL = 'statics/'
 STATICFILES_DIRS = [BASE_DIR / 'statics']
 
-
-SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+# Sesiones se almacenan en una tabla llamada django_session de PostgreSQL
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
